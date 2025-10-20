@@ -1,30 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Routes, Route } from "react-router-dom";
 import './App.css'
 import MyNavbar from './components/MyNavbar'
-import Hero from './components/Hero'
-import WomenSection from './components/WomenSection'
-import MenSection from './components/MenSection'
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import About from "./pages/About";
+import Cart from "./pages/Cart";
+
 
 function App() {
   
 
   return (
 
-    <div className='relative w-full min-h-100vh overflow-x-hidden'>
-        <div className='flex w-screen sm: justify-center space-x-4'>
-        <MyNavbar />
-        
-      </div>
-      <div className='w-full h-full'>
-        <Hero />
-      </div>
-      <WomenSection/>
-      <MenSection />
-      
 
-    </div>
+    <>
+    <div className='flex w-screen sm: justify-center space-x-4'>
+        <MyNavbar />
+      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </>
     
       
   
