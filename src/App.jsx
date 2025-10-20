@@ -5,6 +5,7 @@ import './App.css'
 import MyNavbar from './components/MyNavbar'
 import Hero from './components/Hero'
 import WomenSection from './components/WomenSection'
+import MenSection from './components/MenSection'
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <Hero />
       </div>
       <WomenSection/>
+      <MenSection />
       
 
     </div>
