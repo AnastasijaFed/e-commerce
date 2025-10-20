@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import MyNavbar from './components/MyNavbar'
 import Hero from './components/Hero'
+import WomenSection from './components/WomenSection'
 
 function App() {
   
@@ -17,8 +18,8 @@ function App() {
       </div>
       <div className='w-full h-full'>
         <Hero />
-
       </div>
+      <WomenSection/>
       
 
     </div>
