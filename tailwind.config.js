@@ -1,15 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{html,js}',
-    './components/**/*.{html,js}',
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    colors: {
-      darkOlive: "#636B2F",
-      brightText: "#f5fdec",
-      darkText: "#636B2F",
-      componentBg: "#3D4127"
-    }
-  }
-}
+    extend: {
+      colors: {
+        'dark-olive': "#636B2F",
+        'bright-text': "#f5fdec",
+        'dark-text': "#636B2F",
+        'component-bg': "#3D4127",
+      },
+    },
+  },
+  plugins: [],
+};
