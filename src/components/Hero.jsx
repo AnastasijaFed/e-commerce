@@ -1,5 +1,6 @@
 import React from 'react';
 import TextType from '../utils/TextType';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -23,12 +24,12 @@ const Hero = () => {
         </div>
 
         <div className="flex justify-center">
-          <a
-            href="#"
+          <Link
+            to="/products"
             className="rounded-md bg-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-md hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 text-center min-w-[180px]"
           >
             Shop
-          </a>
+          </Link>
         </div>
       </div>
     </section>

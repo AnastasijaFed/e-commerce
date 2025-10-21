@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link, useNavigate } from "react-router-dom";
 
 const WomenSection = () => {
   const [products, setProducts] = useState([]);
@@ -20,12 +21,12 @@ console.log(products);
     <section className="w-full p-6">
       <div className="flex justify-between items-center mb-10">
         <h2 className="text-3xl font-semibold">Women’s Collection</h2>
-        <a
-          href="#"
+        <Link
+          to="/products/women's clothing"
           className="text-indigo-600 hover:text-indigo-800 font-medium"
         >
           Explore more →
-        </a>
+        </Link>
       </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">

@@ -9,7 +9,7 @@ const MyNavbar = () => {
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
-    // Navigate to correct route
+
     if (category === "All") navigate("/products");
     else navigate(`/products/${category.toLowerCase().replace(/[' ]/g, "-")}`);
   };
