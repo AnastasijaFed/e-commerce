@@ -2,7 +2,13 @@ import React from 'react'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <div>
+      <div className='grid gird-cols-2 md:grid-cols-1'> 
+      
+
+
+      </div>
+    </div>
   )
 }
 

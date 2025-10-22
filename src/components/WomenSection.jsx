@@ -20,6 +20,7 @@ console.log(products);
   return (
     <section className="w-full p-6">
       <div className="flex justify-between items-center mb-10">
+        
         <h2 className="text-3xl font-semibold">Women’s Collection</h2>
         <Link
           to="/products/women's clothing"

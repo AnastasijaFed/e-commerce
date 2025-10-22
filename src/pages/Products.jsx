@@ -46,7 +46,7 @@ const Products = ({ category }) => {
           ))}
         </select>
 
-        {!selectedCategory && (
+        {!selectedCategory && !decodedCategory && (
           <p className="text-center text-gray-500 mt-20">
             Please select a category above to view products.
           </p>

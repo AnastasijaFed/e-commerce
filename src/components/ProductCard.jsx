@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react'
 
 const ProductCard = ({category}) => {
+    const [message, setMessage] = useState("");
     const [products, setProducts] = useState([]);
      useEffect(() => {
     if (!category) return;
@@ -11,9 +12,19 @@ const ProductCard = ({category}) => {
       .then((data) => setProducts(data))
       .catch((err) => console.error("Error fetching products:", err));
   }, [category]);
+
+   const handleAddToCart = (productTitle) => {
+    setMessage(`${productTitle} added to cart!`);
+
+    setTimeout(() => setMessage(""), 2000);
+  };
   return (
      <section className="w-full min-h-screen p-6 mt-6">
-      
+      {message && (
+        <div className="fixed top-20 right-6 bg-green-600 text-white px-4 py-2 rounded-md shadow-lg transition-opacity duration-300">
+          {message}
+        </div>
+      )}
 
       {category && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
@@ -41,9 +52,10 @@ const ProductCard = ({category}) => {
                     <p className="text-indigo-600 font-bold mt-4">
                   ${product.price.toFixed(2)}
                 </p>
-                <button type="button" className="bg-indigo-600 text-amber-50 rounded-full mt-4">Add to cart<i class="bi bi-bag-fill"></i></button>
+                <button type="button" id='cart' onClick={() => handleAddToCart(product.title)} className="bg-indigo-600 text-amber-50 rounded-full mt-4">+ Add to cart</button>
 
                 </div>
+                
                 
 
               </div>
