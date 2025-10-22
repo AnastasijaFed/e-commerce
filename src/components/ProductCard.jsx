@@ -1,7 +1,10 @@
 
 import React, {useState, useEffect} from 'react'
+import { useCart } from "../context/CartContext";
+
 
 const ProductCard = ({category}) => {
+   const { addToCart } = useCart();
     const [message, setMessage] = useState("");
     const [products, setProducts] = useState([]);
      useEffect(() => {
@@ -13,9 +16,9 @@ const ProductCard = ({category}) => {
       .catch((err) => console.error("Error fetching products:", err));
   }, [category]);
 
-   const handleAddToCart = (productTitle) => {
-    setMessage(`${productTitle} added to cart!`);
-
+   const handleAddToCart = (product) => {
+    addToCart(product);
+    setMessage(`${product.title} added to cart!`);
     setTimeout(() => setMessage(""), 2000);
   };
   return (
@@ -52,7 +55,7 @@ const ProductCard = ({category}) => {
                     <p className="text-indigo-600 font-bold mt-4">
                   ${product.price.toFixed(2)}
                 </p>
-                <button type="button" id='cart' onClick={() => handleAddToCart(product.title)} className="bg-indigo-600 text-amber-50 rounded-full mt-4">+ Add to cart</button>
+                <button type="button" id='cart' onClick={() => handleAddToCart(product)} className="bg-indigo-600 text-amber-50 rounded-full mt-4">+ Add to cart</button>
 
                 </div>
                 
