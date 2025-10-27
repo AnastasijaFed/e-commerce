@@ -31,12 +31,6 @@ const MyNavbar = () => {
           </li>
 
           <li>
-            <Link to="/about" className="block py-2 px-3 text-gray-800">
-              About
-            </Link>
-          </li>
-
-          <li>
             <Link to="/cart" className="block py-2 px-3 text-gray-800">
               Cart
             </Link>

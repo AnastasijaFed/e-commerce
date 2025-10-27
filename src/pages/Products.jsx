@@ -11,34 +11,39 @@ const Products = ({ category }) => {
 
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    if (category) return; 
+  const activeCategory = decodedCategory || selectedCategory;
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [decodedCategory]);
+
+  useEffect(() => {
     fetch('https://fakestoreapi.com/products/categories')
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error('Error fetching categories:', err));
-  }, [category]);
+  }, []);
 
   return (
     <div className="pt-24 px-6 min-h-screen">
       <div className="flex flex-col items-center mb-10">
         <select
           className="bg-white text-gray-900 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          value={selectedCategory || decodedCategory || ''}
+          value={activeCategory || ''}
           onChange={(e) => {
             const newCategory = e.target.value;
             setSelectedCategory(newCategory);
 
+
+
             if (newCategory) {
               navigate(`/products/${encodeURIComponent(newCategory)}`);
             } else {
-              navigate('/products'); 
+              navigate('/products'); // show all products
             }
           }}
         >
-          <option value="">Select a category...</option>
+          <option value="">All categories</option>
           {categories.map((cat) => (
             <option key={cat} value={cat}>
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -46,13 +51,8 @@ const Products = ({ category }) => {
           ))}
         </select>
 
-        {!selectedCategory && !decodedCategory && (
-          <p className="text-center text-gray-500 mt-20">
-            Please select a category above to view products.
-          </p>
-        )}
-
-        <ProductCard category={decodedCategory || selectedCategory} />
+      
+        <ProductCard category={activeCategory || ''} />
       </div>
     </div>
   );
