@@ -17,7 +17,7 @@ const MyNavbar = () => {
   return (
     <nav className="fixed w-full z-20 top-0 left-0 bg-white ">
       <div className="flex justify-center w-full">
-        <ul className="flex md:flex-row gap-8 p-4 font-medium bg-gray-50 md:bg-transparent">
+        <ul className="flex md:flex-row gap-8 p-4 font-medium">
           <li>
             <Link to="/" className="block py-2 px-3 text-gray-800">
               Home
