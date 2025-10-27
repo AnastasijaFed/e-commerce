@@ -8,7 +8,7 @@ const Products = ({ category }) => {
   const { category: categoryParam } = useParams();
   const decodedCategory = categoryParam
     ? decodeURIComponent(categoryParam)
-    : category;
+    : category; 
 
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
