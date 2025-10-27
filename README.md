@@ -1,16 +1,56 @@
-# React + Vite
+# E-Commerce Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive e-commerce platform built using **React**, **Vite**, and **Tailwind CSS**, integrated with the [Fake Store API](https://fakestoreapi.com/).  
+This project demonstrates front-end architecture, API integration, and user experience principles through a scalable online shopping interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+This e-commerce application allows users to explore product categories, view detailed product information, and simulate adding items to a cart.  
+It uses live data fetched from the Fake Store API and showcases clean component architecture, responsive UI design, and modern front-end best practices.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The app is designed to be **fast**, **accessible**, and **scalable**, serving as a foundation for a production-ready online store.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- **Dynamic Product Listing:** Fetches real product data from the Fake Store API.  
+- **Category Filtering:** Browse products by category such as *Men’s Clothing*, *Women’s Clothing*, *Jewelry*, and *Electronics*.  
+- **Responsive Design:** Fully optimized for all screen sizes using Tailwind CSS.  
+- **Smooth Animations:** Framer Motion integration for scroll-based and entrance animations.  
+- **Reusable Components:** Modular, maintainable, and easy to extend.  
+- **Client-Side Routing:** Implemented with React Router for seamless navigation.  
+- **Cart Simulation:** Add products to the cart and view dynamic feedback.  
+
+---
+
+## Tech Stack
+
+**Framework & Tooling**  
+- React 19 (Functional Components + Hooks)  
+- Vite (Development bundler for fast builds and HMR)
+
+**Styling**  
+- Tailwind CSS (utility-first responsive design)  
+- Custom color palette configuration for theme consistency  
+
+**Animation**  
+- Framer Motion (animations and transitions on scroll and load)
+
+**API & Data Handling**  
+- Fake Store API for real product data  
+- Fetch API for RESTful requests and dynamic updates  
+
+**Routing**  
+- React Router DOM for page and category navigation  
+
+---
+
+## Setup and Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/AnastasijaFed/e-commerce.git
+   cd e-commerce
