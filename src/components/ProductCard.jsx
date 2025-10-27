@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from "../context/CartContext";
 
+
 const ProductCard = ({ category }) => {
   const { addToCart } = useCart();
   const [message, setMessage] = useState("");
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    let url = "https://fakestoreapi.com/products"; // default: all products
+    let url = "https://fakestoreapi.com/products";
     if (category) {
       url = `https://fakestoreapi.com/products/category/${category}`;
     }
@@ -27,7 +28,7 @@ const ProductCard = ({ category }) => {
   return (
     <section className="w-full min-h-screen p-6 mt-6">
       {message && (
-        <div className="fixed top-20 right-6 bg-green-600 text-white px-4 py-2 rounded-md shadow-lg transition-opacity duration-300">
+        <div className="fixed top-20 right-6 bg-[#245F73] text-[#F2F0EF] px-4 py-2 rounded-md shadow-md transition-opacity duration-300">
           {message}
         </div>
       )}
@@ -37,33 +38,37 @@ const ProductCard = ({ category }) => {
           {products.map((product) => (
             <div
               key={product.id}
-              className="bg-[#fcfcfc] shadow-md rounded-lg overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md"
+              className="bg-white shadow-md hover:shadow-xl transition-all duration-300 rounded-lg overflow-hidden w-full max-w-xs sm:max-w-sm md:max-w-md border border-[#E6E6E6]"
             >
-              <figure className="w-full bg-gray-50">
+        
+              <figure className="w-full bg-[#F9FAFB] flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-64 object-contain p-4"
+                  className="w-full h-64 object-contain p-4 transition-transform duration-300 hover:scale-105"
                 />
               </figure>
+
+             
               <div className="p-5 text-center">
-                <h3 className="text-lg text-[#2F362F] font-semibold truncate">
+                <h3 className="text-lg font-semibold text-[#2F362F] truncate">
                   {product.title}
                 </h3>
-                <p className="text-gray-600 text-sm mt-2 line-clamp-3">
+                <p className="text-[#6B6B6B] text-sm mt-2 line-clamp-3 leading-relaxed">
                   {product.description}
                 </p>
-                <div className="grid grid-cols-2 place-content-between">
-                  <p className="text-[#BBBDBC] font-bold mt-4">
+
+                {/* Price + Button */}
+                <div className="flex items-center justify-between mt-4">
+                  <p className="text-[#245F73] font-bold text-lg">
                     ${product.price.toFixed(2)}
                   </p>
                   <button
                     type="button"
-                    id="cart"
                     onClick={() => handleAddToCart(product)}
-                    className="bg-[#245F73] hover:bg-[#1d4f61] text-white rounded-full px-4 py-2 mt-2 transition"
+                    className="bg-[#245F73] hover:bg-[#1d4f61] text-[#F2F0EF] rounded-full px-5 py-2 text-sm font-medium transition-all"
                   >
-                    + Add to cart
+                    + Add to Cart
                   </button>
                 </div>
               </div>
@@ -71,7 +76,7 @@ const ProductCard = ({ category }) => {
           ))}
         </div>
       ) : (
-        <p className="text-center text-gray-500 mt-20">
+        <p className="text-center text-[#BBBDBC] mt-20">
           Loading products...
         </p>
       )}

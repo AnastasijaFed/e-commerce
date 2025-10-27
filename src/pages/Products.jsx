@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../components/ProductCard';
 import { useParams, useNavigate } from 'react-router-dom';
+import CategoryDropdown from '../components/CategoryDropdown';
 
 const Products = ({ category }) => {
   const navigate = useNavigate();
@@ -25,33 +26,24 @@ const Products = ({ category }) => {
   }, []);
 
   return (
-    <div className="pt-24 px-6 min-h-screen">
+    <div className="pt-24 px-6 min-h-screen bg-[#F2F0EF]">
       <div className="flex flex-col items-center mb-10">
-        <select
-          className="bg-white text-gray-900 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          value={activeCategory || ''}
-          onChange={(e) => {
-            const newCategory = e.target.value;
-            setSelectedCategory(newCategory);
+
+        <CategoryDropdown
+          categories={categories}
+          activeCategory={activeCategory}
+          setSelectedCategory={setSelectedCategory}
+          navigate={navigate}
+        />
 
 
+        <h1 className="mt-8 text-3xl font-semibold text-[#245F73] tracking-tight">
+          {activeCategory
+            ? `${activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1)}`
+            : 'All Products'}
+        </h1>
 
-            if (newCategory) {
-              navigate(`/products/${encodeURIComponent(newCategory)}`);
-            } else {
-              navigate('/products'); // show all products
-            }
-          }}
-        >
-          <option value="">All categories</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat.charAt(0).toUpperCase() + cat.slice(1)}
-            </option>
-          ))}
-        </select>
 
-      
         <ProductCard category={activeCategory || ''} />
       </div>
     </div>
